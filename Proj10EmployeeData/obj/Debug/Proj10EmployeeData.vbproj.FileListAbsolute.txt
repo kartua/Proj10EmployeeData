@@ -10,3 +10,4 @@ C:\Users\Kartua\Documents\KartuaDocument\VBcourse\Proj10EmployeeData\Proj10Emplo
 C:\Users\Kartua\Documents\KartuaDocument\VBcourse\Proj10EmployeeData\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.xml
 C:\Users\Kartua\Documents\KartuaDocument\VBcourse\Proj10EmployeeData\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.pdb
 C:\Users\Kartua\Documents\KartuaDocument\VBcourse\Proj10EmployeeData\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.MainForm.resources
+C:\Users\Kartua\Documents\KartuaDocument\VBcourse\Proj10EmployeeData\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.WriteDataForm.resources

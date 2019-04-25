@@ -1,12 +1,50 @@
 ﻿Imports System.IO
 
 Public Class MainForm
-    Dim strFilePath As String               ' To hold the filename
-    Dim intRecordNum As Integer = 1         ' Record number
-    Dim inputFile As StreamReader
+    Public strFilePath As String = ""               ' To hold the filename
+    Public inputFile As StreamReader
 
 
-    Private Sub ReadDataForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        inputFile.Close()
+        Me.Close()
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        ' Clear the form.
+        lblFirstName.Text = String.Empty
+        lblMiddleName.Text = String.Empty
+        lblLastName.Text = String.Empty
+        lblEmployeeNum.Text = String.Empty
+        lblDept.Text = String.Empty
+        lblTelephone.Text = String.Empty
+        lblExtension.Text = String.Empty
+        lblEmail.Text = String.Empty
+
+        ' Reset the focus
+        lblFirstName.Focus()
+    End Sub
+
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        ' Read the next record.
+        If inputFile.Peek <> -1 Then
+
+            lblFirstName.Text = inputFile.ReadLine
+            lblMiddleName.Text = inputFile.ReadLine
+            lblLastName.Text = inputFile.ReadLine
+            lblEmployeeNum.Text = inputFile.ReadLine
+            lblDept.Text = inputFile.ReadLine
+            lblTelephone.Text = inputFile.ReadLine
+            lblExtension.Text = inputFile.ReadLine
+            lblEmail.Text = inputFile.ReadLine
+
+        Else
+            MessageBox.Show("End of file.")
+        End If
+
+    End Sub
+
+    Private Sub mnuFileOpen_Click(sender As Object, e As EventArgs) Handles mnuFileOpen.Click
         Try
             Dim respondOpenDialog As DialogResult
             With OpenFileDialog1
@@ -32,43 +70,15 @@ Public Class MainForm
         End Try
     End Sub
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        inputFile.Close()
-        Me.Close()
-    End Sub
-
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        ' Clear the form.
-        lblFirstName.Text = String.Empty
-        lblMiddleName.Text = String.Empty
-        lblLastName.Text = String.Empty
-        lblEmployeeNum.Text = String.Empty
-        lblDept.Text = String.Empty
-        lblTelephone.Text = String.Empty
-        lblExtension.Text = String.Empty
-        lblEmail.Text = String.Empty
-
-        ' Reset the focus
-        lblFirstName.Focus()
-    End Sub
-
-    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
-        ' Read the next record.
-        If inputFile.Peek <> -1 Then
-            lblRecordNum.Text = intRecordNum.ToString
-            lblFirstName.Text = inputFile.ReadLine
-            lblMiddleName.Text = inputFile.ReadLine
-            lblLastName.Text = inputFile.ReadLine
-            lblEmployeeNum.Text = inputFile.ReadLine
-            lblDept.Text = inputFile.ReadLine
-            lblTelephone.Text = inputFile.ReadLine
-            lblExtension.Text = inputFile.ReadLine
-            lblEmail.Text = inputFile.ReadLine
-            intRecordNum += 1
-        Else
-            MessageBox.Show("End of file.")
+    Private Sub AddRecordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddRecordToolStripMenuItem.Click
+        If strFilePath = "" Then
+            If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+                strFilePath = SaveFileDialog1.FileName
+                inputFile = File.OpenText(strFilePath)
+            End If
         End If
-
+        inputFile.Close()
+        Dim writeForm = New WriteDataForm
+        writeForm.ShowDialog()
     End Sub
-
 End Class

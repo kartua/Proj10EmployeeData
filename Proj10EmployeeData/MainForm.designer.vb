@@ -42,10 +42,18 @@ Partial Class MainForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.lblRecordNum = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileOpen = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EdiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddRecordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.GroupBox1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnClear
@@ -265,31 +273,64 @@ Partial Class MainForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Enter Employee Data"
         '
-        'lblRecordNum
-        '
-        Me.lblRecordNum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblRecordNum.Location = New System.Drawing.Point(325, 20)
-        Me.lblRecordNum.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblRecordNum.Name = "lblRecordNum"
-        Me.lblRecordNum.Size = New System.Drawing.Size(59, 25)
-        Me.lblRecordNum.TabIndex = 9
-        Me.lblRecordNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(204, 25)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(112, 17)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Record Number:"
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'ReadDataForm
+        'MenuStrip1
+        '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EdiToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(582, 28)
+        Me.MenuStrip1.TabIndex = 14
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFileOpen, Me.PrintToolStripMenuItem, Me.ToolStripMenuItem1, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(44, 24)
+        Me.FileToolStripMenuItem.Text = "File"
+        '
+        'mnuFileOpen
+        '
+        Me.mnuFileOpen.Name = "mnuFileOpen"
+        Me.mnuFileOpen.Size = New System.Drawing.Size(120, 26)
+        Me.mnuFileOpen.Text = "&Open"
+        '
+        'PrintToolStripMenuItem
+        '
+        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(120, 26)
+        Me.PrintToolStripMenuItem.Text = "&Print"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(117, 6)
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(120, 26)
+        Me.ExitToolStripMenuItem.Text = "&Exit"
+        '
+        'EdiToolStripMenuItem
+        '
+        Me.EdiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddRecordToolStripMenuItem})
+        Me.EdiToolStripMenuItem.Name = "EdiToolStripMenuItem"
+        Me.EdiToolStripMenuItem.Size = New System.Drawing.Size(47, 24)
+        Me.EdiToolStripMenuItem.Text = "&Edit"
+        '
+        'AddRecordToolStripMenuItem
+        '
+        Me.AddRecordToolStripMenuItem.Name = "AddRecordToolStripMenuItem"
+        Me.AddRecordToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.AddRecordToolStripMenuItem.Text = "&Add Record"
+        '
+        'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -298,12 +339,14 @@ Partial Class MainForm
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.lblRecordNum)
-        Me.Controls.Add(Me.Label1)
-        Me.Name = "ReadDataForm"
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Name = "MainForm"
         Me.Text = "Employee Data"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -329,7 +372,14 @@ Partial Class MainForm
     Friend WithEvents Label2 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents lblRecordNum As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuFileOpen As ToolStripMenuItem
+    Friend WithEvents PrintToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EdiToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AddRecordToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 End Class

@@ -22,6 +22,7 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnNext = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
@@ -52,6 +53,8 @@ Partial Class MainForm
         Me.EdiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddRecordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -297,24 +300,24 @@ Partial Class MainForm
         'mnuFileOpen
         '
         Me.mnuFileOpen.Name = "mnuFileOpen"
-        Me.mnuFileOpen.Size = New System.Drawing.Size(120, 26)
+        Me.mnuFileOpen.Size = New System.Drawing.Size(216, 26)
         Me.mnuFileOpen.Text = "&Open"
         '
         'PrintToolStripMenuItem
         '
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(120, 26)
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.PrintToolStripMenuItem.Text = "&Print"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(117, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(213, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(120, 26)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.ExitToolStripMenuItem.Text = "&Exit"
         '
         'EdiToolStripMenuItem
@@ -329,6 +332,19 @@ Partial Class MainForm
         Me.AddRecordToolStripMenuItem.Name = "AddRecordToolStripMenuItem"
         Me.AddRecordToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.AddRecordToolStripMenuItem.Text = "&Add Record"
+        '
+        'PrintDocument1
+        '
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
         '
         'MainForm
         '
@@ -382,4 +398,6 @@ Partial Class MainForm
     Friend WithEvents EdiToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddRecordToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class

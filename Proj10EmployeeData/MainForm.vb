@@ -81,4 +81,50 @@ Public Class MainForm
         Dim writeForm = New WriteDataForm
         writeForm.ShowDialog()
     End Sub
+
+    Private Sub PrintToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintToolStripMenuItem.Click
+        PrintPreviewDialog1.Document = PrintDocument1
+        PrintPreviewDialog1.ShowDialog()
+
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        ' FORM ENTRIES REPORT
+
+        ' Declare the Variables for the Fonts
+        Dim HeadingFont As New Font("Arial", 14, FontStyle.Bold)
+        Dim PrintFont As New Font("Arial", 12)
+
+        ' Declare the Variable for the Height of the Characters
+        Dim LineHeightSingle As Single = PrintFont.GetHeight + 2
+
+        'Declare the X and Y Coordinate Variables
+        Dim X_CoordinateSingle As Single = e.MarginBounds.Left
+        Dim Y_CoordinateSingle As Single = e.MarginBounds.Top
+
+        ' Declare a Variable for storing a horizontal line of print on the paper.
+        Dim PrintLineString As String
+
+        PrintLineString = "Employee Data"
+        e.Graphics.DrawString(PrintLineString, HeadingFont, Brushes.Black, X_CoordinateSingle, Y_CoordinateSingle)
+
+        ' Move the Cursor down the page vertically - increase the y-value
+        Y_CoordinateSingle += LineHeightSingle
+        Y_CoordinateSingle += LineHeightSingle
+
+        PrintLineString = "First Name: " & lblFirstName.Text & vbCrLf
+        PrintLineString += "Middle Name: " & lblMiddleName.Text & vbCrLf
+        PrintLineString += "Last Name: " & lblLastName.Text & vbCrLf
+        PrintLineString += "Employee Number: " & lblEmployeeNum.Text & vbCrLf
+        PrintLineString += "Department: " & lblDept.Text & vbCrLf
+        PrintLineString += "Telephone: " & lblTelephone.Text & vbCrLf
+        PrintLineString += "Estension: " & lblExtension.Text & vbCrLf
+        PrintLineString += "E-mail Address: " & lblEmail.Text & vbCrLf
+
+        e.Graphics.DrawString(PrintLineString, PrintFont, Brushes.Black, X_CoordinateSingle, Y_CoordinateSingle)
+    End Sub
 End Class

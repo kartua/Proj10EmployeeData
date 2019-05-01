@@ -55,6 +55,10 @@ Partial Class MainForm
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -283,7 +287,7 @@ Partial Class MainForm
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EdiToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EdiToolStripMenuItem, Me.SearchToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(582, 28)
@@ -300,24 +304,24 @@ Partial Class MainForm
         'mnuFileOpen
         '
         Me.mnuFileOpen.Name = "mnuFileOpen"
-        Me.mnuFileOpen.Size = New System.Drawing.Size(216, 26)
+        Me.mnuFileOpen.Size = New System.Drawing.Size(120, 26)
         Me.mnuFileOpen.Text = "&Open"
         '
         'PrintToolStripMenuItem
         '
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(120, 26)
         Me.PrintToolStripMenuItem.Text = "&Print"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(213, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(117, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(120, 26)
         Me.ExitToolStripMenuItem.Text = "&Exit"
         '
         'EdiToolStripMenuItem
@@ -330,7 +334,7 @@ Partial Class MainForm
         'AddRecordToolStripMenuItem
         '
         Me.AddRecordToolStripMenuItem.Name = "AddRecordToolStripMenuItem"
-        Me.AddRecordToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.AddRecordToolStripMenuItem.Size = New System.Drawing.Size(163, 26)
         Me.AddRecordToolStripMenuItem.Text = "&Add Record"
         '
         'PrintDocument1
@@ -346,11 +350,40 @@ Partial Class MainForm
         Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
         Me.PrintPreviewDialog1.Visible = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(13, 447)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 15
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'SearchToolStripMenuItem
+        '
+        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(65, 24)
+        Me.SearchToolStripMenuItem.Text = "&Search"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(53, 24)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.AboutToolStripMenuItem.Text = "&About"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(582, 491)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnExit)
@@ -400,4 +433,8 @@ Partial Class MainForm
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents Button1 As Button
+    Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
 End Class

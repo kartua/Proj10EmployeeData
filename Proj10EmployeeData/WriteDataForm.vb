@@ -4,6 +4,7 @@ Public Class WriteDataForm
     Dim strFilePath As String = MainForm.strFilePath
     Dim ResponseSaveDialogResult As DialogResult
     Dim employeeFile As StreamWriter
+    Dim addFlag As Boolean = False
 
 
 
@@ -28,9 +29,8 @@ Public Class WriteDataForm
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
         Try
-
-
             employeeFile = File.AppendText(strFilePath)
             employeeFile.WriteLine(txtFirstName.Text)
             employeeFile.WriteLine(txtMiddleName.Text)
@@ -41,12 +41,21 @@ Public Class WriteDataForm
             employeeFile.WriteLine(txtExtension.Text)
             employeeFile.WriteLine(txtEmail.Text)
             employeeFile.Close()
+
+            addFlag = True
             MessageBox.Show("The record has been saved.")
         Catch ex As Exception
-
+            MessageBox.Show("Cannot process file")
         End Try
 
     End Sub
 
+    Private Sub WriteDataForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        ' Check if the record is added 
+        If addFlag Then
+            'Make sure that new data is add to the array
+            MainForm.populateDataToArray()
+        End If
 
+    End Sub
 End Class

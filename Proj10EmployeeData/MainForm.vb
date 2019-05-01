@@ -3,11 +3,32 @@
 Public Class MainForm
     Public strFilePath As String = ""               ' To hold the filename
     Public inputFile As StreamReader
+    Dim maxRecord As Int16 = 9
+    Dim numberRecord As Int16 = 0
+    Public emplyoeeData(maxRecord) As EmployeeData
+
+    Structure EmployeeData
+        Public firstName As String
+        Public midName As String
+        Public lastName As String
+        Public employeeNumber As Long
+        Public department As String
+        Public telephone As String
+        Public ext As String
+        Public email As String
+    End Structure
 
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        inputFile.Close()
-        Me.Close()
+
+        Try
+            'close the Stream Reader
+            inputFile.Close()
+            Me.Close()
+        Catch ex As Exception
+            Me.Close()
+        End Try
+
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -23,29 +44,38 @@ Public Class MainForm
 
         ' Reset the focus
         lblFirstName.Focus()
+
+
     End Sub
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         ' Read the next record.
-        If inputFile.Peek <> -1 Then
+        Try
 
-            lblFirstName.Text = inputFile.ReadLine
-            lblMiddleName.Text = inputFile.ReadLine
-            lblLastName.Text = inputFile.ReadLine
-            lblEmployeeNum.Text = inputFile.ReadLine
-            lblDept.Text = inputFile.ReadLine
-            lblTelephone.Text = inputFile.ReadLine
-            lblExtension.Text = inputFile.ReadLine
-            lblEmail.Text = inputFile.ReadLine
+            If inputFile.Peek <> -1 Then
 
-        Else
-            MessageBox.Show("End of file.")
-        End If
+                lblFirstName.Text = inputFile.ReadLine
+                lblMiddleName.Text = inputFile.ReadLine
+                lblLastName.Text = inputFile.ReadLine
+                lblEmployeeNum.Text = inputFile.ReadLine
+                lblDept.Text = inputFile.ReadLine
+                lblTelephone.Text = inputFile.ReadLine
+                lblExtension.Text = inputFile.ReadLine
+                lblEmail.Text = inputFile.ReadLine
+
+            Else
+                MessageBox.Show("End of file.")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Cannot read a file")
+        End Try
+
 
     End Sub
 
     Private Sub mnuFileOpen_Click(sender As Object, e As EventArgs) Handles mnuFileOpen.Click
         Try
+
             Dim respondOpenDialog As DialogResult
             With OpenFileDialog1
                 ' Display the current directory in the window
@@ -60,17 +90,20 @@ Public Class MainForm
             If respondOpenDialog <> DialogResult.Cancel Then
                 strFilePath = OpenFileDialog1.FileName
                 inputFile = File.OpenText(strFilePath)
+                'call populateDataToArray precedure
+                populateDataToArray()
             Else
                 Me.Close()
             End If
 
         Catch ex As Exception
             MessageBox.Show("File cannot be opened")
-            Me.Close()
+        Me.Close()
         End Try
     End Sub
 
     Private Sub AddRecordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddRecordToolStripMenuItem.Click
+        'Check if the file has not been opened yet
         If strFilePath = "" Then
             If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
                 strFilePath = SaveFileDialog1.FileName
@@ -116,6 +149,7 @@ Public Class MainForm
         Y_CoordinateSingle += LineHeightSingle
         Y_CoordinateSingle += LineHeightSingle
 
+        'add data to PrintLineString
         PrintLineString = "First Name: " & lblFirstName.Text & vbCrLf
         PrintLineString += "Middle Name: " & lblMiddleName.Text & vbCrLf
         PrintLineString += "Last Name: " & lblLastName.Text & vbCrLf
@@ -125,6 +159,84 @@ Public Class MainForm
         PrintLineString += "Estension: " & lblExtension.Text & vbCrLf
         PrintLineString += "E-mail Address: " & lblEmail.Text & vbCrLf
 
+        'put PrintLineString to the file
         e.Graphics.DrawString(PrintLineString, PrintFont, Brushes.Black, X_CoordinateSingle, Y_CoordinateSingle)
+    End Sub
+
+    Public Sub populateDataToArray()
+        Try
+            inputFile = File.OpenText(strFilePath)
+            numberRecord = 0
+            While Not (inputFile.EndOfStream)
+                'Check if the number of record exceed the array capacity or not
+                If numberRecord > maxRecord Then
+                    increaseArraySize()
+                End If
+                emplyoeeData(numberRecord).firstName = inputFile.ReadLine
+                emplyoeeData(numberRecord).midName = inputFile.ReadLine
+                emplyoeeData(numberRecord).lastName = inputFile.ReadLine
+                emplyoeeData(numberRecord).employeeNumber = inputFile.ReadLine
+                emplyoeeData(numberRecord).department = inputFile.ReadLine
+                emplyoeeData(numberRecord).telephone = inputFile.ReadLine
+                emplyoeeData(numberRecord).ext = inputFile.ReadLine
+                emplyoeeData(numberRecord).email = inputFile.ReadLine
+
+                'Tracking number of record
+                numberRecord += 1
+
+            End While
+            inputFile.Close()
+            inputFile = File.OpenText(strFilePath)
+        Catch ex As Exception
+            MessageBox.Show("Cannot read a file")
+        End Try
+
+    End Sub
+
+    Private Sub increaseArraySize()
+        'Expand array size of employeeData
+        maxRecord += 10
+        ReDim Preserve emplyoeeData(maxRecord)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        For i As Int16 = 0 To numberRecord - 1
+            Dim strOutput As String = ""
+            strOutput += "record#" & i
+            strOutput += emplyoeeData(i).firstName & " "
+            strOutput += emplyoeeData(i).midName & " "
+            strOutput += emplyoeeData(i).lastName & " "
+            strOutput += emplyoeeData(i).employeeNumber & " "
+            MessageBox.Show(strOutput)
+        Next
+
+
+
+
+    End Sub
+
+    Private Sub SearchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SearchToolStripMenuItem.Click
+        Dim searchID = InputBox("Input Employee ID")
+        Dim isFound As Boolean = False 'Variable to indicate that the record is found or not
+
+        'Iterate trhough all record in the array
+        For i As Int16 = 0 To numberRecord - 1
+            If emplyoeeData(i).employeeNumber = searchID Then
+                lblFirstName.Text = emplyoeeData(i).firstName
+                lblMiddleName.Text = emplyoeeData(i).midName
+                lblLastName.Text = emplyoeeData(i).lastName
+                lblEmployeeNum.Text = emplyoeeData(i).employeeNumber
+                lblDept.Text = emplyoeeData(i).department
+                lblTelephone.Text = emplyoeeData(i).telephone
+                lblExtension.Text = emplyoeeData(i).ext
+                lblEmail.Text = emplyoeeData(i).email
+                isFound = True
+            End If
+        Next
+
+        If Not isFound Then
+            MessageBox.Show("No record is found")
+        End If
+
     End Sub
 End Class

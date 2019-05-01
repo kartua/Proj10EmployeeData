@@ -223,20 +223,26 @@ Public Class MainForm
         Dim searchID = InputBox("Input Employee ID")
         Dim isFound As Boolean = False 'Variable to indicate that the record is found or not
 
-        'Iterate trhough all record in the array
-        For i As Int16 = 0 To numberRecord - 1
-            If emplyoeeData(i).employeeNumber = searchID Then
-                lblFirstName.Text = emplyoeeData(i).firstName
-                lblMiddleName.Text = emplyoeeData(i).midName
-                lblLastName.Text = emplyoeeData(i).lastName
-                lblEmployeeNum.Text = emplyoeeData(i).employeeNumber
-                lblDept.Text = emplyoeeData(i).department
-                lblTelephone.Text = emplyoeeData(i).telephone
-                lblExtension.Text = emplyoeeData(i).ext
-                lblEmail.Text = emplyoeeData(i).email
-                isFound = True
-            End If
-        Next
+
+
+        If searchID <> "" Then
+            'Iterate trhough all record in the array
+            For i As Int16 = 0 To numberRecord - 1
+                If emplyoeeData(i).employeeNumber = searchID Then
+                    lblFirstName.Text = emplyoeeData(i).firstName
+                    lblMiddleName.Text = emplyoeeData(i).midName
+                    lblLastName.Text = emplyoeeData(i).lastName
+                    lblEmployeeNum.Text = emplyoeeData(i).employeeNumber
+                    lblDept.Text = emplyoeeData(i).department
+                    lblTelephone.Text = emplyoeeData(i).telephone
+                    lblExtension.Text = emplyoeeData(i).ext
+                    lblEmail.Text = emplyoeeData(i).email
+                    isFound = True
+                End If
+            Next
+        End If
+
+
 
         If Not isFound Then
             MessageBox.Show("No record is found")

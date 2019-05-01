@@ -12,3 +12,17 @@ C:\Users\Kartua\Documents\KartuaDocument\VBcourse\Proj10EmployeeData\Proj10Emplo
 C:\Users\Kartua\Documents\KartuaDocument\VBcourse\Proj10EmployeeData\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.MainForm.resources
 C:\Users\Kartua\Documents\KartuaDocument\VBcourse\Proj10EmployeeData\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.WriteDataForm.resources
 C:\Users\Kartua\Documents\KartuaDocument\VBcourse\Proj10EmployeeData\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.AboutBox1.resources
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\bin\Debug\Proj10EmployeeData.exe.config
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\bin\Debug\Proj10EmployeeData.exe
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\bin\Debug\Proj10EmployeeData.pdb
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\bin\Debug\Proj10EmployeeData.xml
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.vbprojAssemblyReference.cache
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.AboutBox1.resources
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.Resources.resources
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.MainForm.resources
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.WriteDataForm.resources
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.vbproj.GenerateResource.cache
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.vbproj.CoreCompileInputs.cache
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.exe
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.xml
+C:\Users\cim110\Downloads\Proj10EmployeeData-master\Proj10EmployeeData-master\Proj10EmployeeData\obj\Debug\Proj10EmployeeData.pdb

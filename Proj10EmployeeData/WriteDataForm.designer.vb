@@ -43,6 +43,7 @@ Partial Class WriteDataForm
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -242,11 +243,21 @@ Partial Class WriteDataForm
         Me.btnExit.Text = "E&xit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(243, 424)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(141, 17)
+        Me.Label1.TabIndex = 16
+        Me.Label1.Text = "Smith Amornsaensuk"
+        '
         'WriteDataForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(424, 450)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnSave)
@@ -256,6 +267,7 @@ Partial Class WriteDataForm
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -280,4 +292,5 @@ Partial Class WriteDataForm
     Friend WithEvents txtMiddleName As TextBox
     Friend WithEvents txtFirstName As TextBox
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents Label1 As Label
 End Class

@@ -1,4 +1,7 @@
-﻿Imports System.IO
+﻿' CSC 214 Visual II 
+' Project 10 - Employee Data Enchanced
+' Smith Amornsaensuk 
+Imports System.IO
 
 Public Class WriteDataForm
     Dim strFilePath As String = MainForm.strFilePath

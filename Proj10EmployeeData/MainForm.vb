@@ -1,4 +1,8 @@
-﻿Imports System.IO
+﻿' CSC 214 Visual II 
+' Project 10 - Employee Data Enchanced
+' Smith Amornsaensuk 
+
+Imports System.IO
 
 Public Class MainForm
     Public strFilePath As String = ""               ' To hold the filename
@@ -19,7 +23,7 @@ Public Class MainForm
     End Structure
 
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs)
 
         Try
             'close the Stream Reader
@@ -199,7 +203,7 @@ Public Class MainForm
         ReDim Preserve emplyoeeData(maxRecord)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         For i As Int16 = 0 To numberRecord - 1
             Dim strOutput As String = ""
             strOutput += "record#" & i
@@ -237,6 +241,11 @@ Public Class MainForm
         If Not isFound Then
             MessageBox.Show("No record is found")
         End If
+
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBox1.ShowDialog()
 
     End Sub
 End Class

@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Proj10EmployeeData")>
+<Assembly: AssemblyTitle("About Employee Data Enchanced")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Microsoft")>
-<Assembly: AssemblyProduct("Proj10EmployeeData")>
+<Assembly: AssemblyCompany("Camden County College")>
+<Assembly: AssemblyProduct("Employee Data Part 3")>
 <Assembly: AssemblyCopyright("Copyright © Microsoft 2019")>
 <Assembly: AssemblyTrademark("")>
 
